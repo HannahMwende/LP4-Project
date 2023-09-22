@@ -1,45 +1,57 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
-st.title("Streamlit App - Load, Clean Data, and Create Dynamic Plots")
+# Initialize df as None
+df = None
 
-# Allow the user to upload an Excel file
-uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx"])
+st.sidebar.title("Sales Forecasting Favorita Stores")
+selected_option = st.sidebar.radio("Select to Proceed", ["Data Statistics", "Visuals", "Time Series Analysis", "Forecasting"])
 
-# Process the uploaded Excel file
-if uploaded_file is not None:
-    # Check if the file is an Excel file
-    if uploaded_file.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-        # Read the Excel file into a DataFrame
-        df = pd.read_excel(uploaded_file)
-        
-        # Remove null values
-        df.dropna(inplace=True)
-        df=df.drop(columns='Unnamed: 0')
-        df=df.sample(5)
-        
-        # Display the cleaned DataFrame
-        st.write("### Cleaned DataFrame:")
-        st.write(df)
+# Function to load and process the data
+def load_and_process_data():
+    global df
+    # Allow the user to upload an Excel file
+    uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx"])
+    if uploaded_file is not None:
+        # Check if the file is an Excel file
+        if uploaded_file.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+            # Read the Excel file into a DataFrame
+            df = pd.read_excel(uploaded_file)
+            # Remove null values
+            df.dropna(inplace=True)
+            df = df.drop(columns='Unnamed: 0')
+        else:
+            st.write("Please upload a valid Excel file.")
 
-        # Allow user to select the type of plot
-        plot_type = st.selectbox("Select a plot type", ["Scatter Plot", "Bar Chart"])
+# Load and process the data
+load_and_process_data()
 
-        if plot_type == "Scatter Plot":
-            # Allow user to select the X and Y columns for the scatter plot
-            x_column = st.selectbox("Select X-axis column", df.columns)
-            y_column = st.selectbox("Select Y-axis column", df.columns)
-            st.write("### Scatter Plot:")
-            plt.scatter(df[x_column], df[y_column])
-            st.pyplot()
+if selected_option == "Data Statistics":
+    # Rest of the code for "Data Statistics" option using df
+    if df is not None:
+        number_sample = st.number_input("Enter sample size to display data", min_value=5, max_value=10, step=1, value=5)
+        displayed_data = df.head(number_sample)
+        st.write("Sample data", displayed_data)
+        st.write("Summary Statistics of float/Integer columns", df.describe())
+        object_columns = df.select_dtypes(include='object').columns.tolist()
+        selected_column = st.selectbox("Select column of Data Type Object to View Unique values", object_columns)
+        if selected_column:
+            unique_values = df[selected_column].unique()
+            st.write("Unique values are", unique_values)
 
-        elif plot_type == "Bar Chart":
-            # Allow user to select the column for the bar chart
-            bar_column = st.selectbox("Select a column for the bar chart", df.columns)
-            st.write("### Bar Chart:")
-            sns.countplot(x=bar_column, data=df)
-            st.pyplot()
-    else:
-        st.write("Please upload a valid Excel file.")
+elif selected_option == "Visuals":
+    # Rest of the code for "Visuals" option using df
+    if df is not None:
+        object_columns = df.select_dtypes(include='object').columns.tolist()
+        selected_column = st.selectbox("Select column of Data Type Object for Visualization", object_columns)
+        if selected_column:
+            df['date'] = pd.to_datetime(df['date'])  # Convert to datetime if applicable
+            df_grouped = df.groupby(selected_column)['sales'].sum().head(10)
+            df_grouped = df_grouped.sort_values(ascending=False)
+            fig, ax = plt.subplots(figsize=(15, 6))
+            ax.bar(df_grouped.index, df_grouped.values)
+            ax.set_xlabel(selected_column)
+            ax.set_ylabel('Sales Count')
+            ax.set_title(f'Top 10 Sales Count for {selected_column}')
+            st.pyplot(fig)  # Pass the figure to st.pyplot()
