@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Initialize df as None
@@ -55,3 +56,25 @@ elif selected_option == "Visuals":
             ax.set_ylabel('Sales Count')
             ax.set_title(f'Top 10 Sales Count for {selected_column}')
             st.pyplot(fig)  # Pass the figure to st.pyplot()
+elif selected_option == "Time Series Analysis":
+    if df is not None:
+        # Choose date and sales columns
+        timeseriesdata = df[['sales', 'date']]
+        timeseriesdata.index = timeseriesdata['date']
+        # Make date the index
+        timeseriesdata = timeseriesdata.resample('D').sum()  # Resample to daily sales
+
+        # Resample the data based on user's choice
+        resample_method = st.selectbox("Select a resampling method", ['M', 'Q', 'Y'])
+        if resample_method:
+            resampled_data = timeseriesdata.resample(resample_method).sum()
+
+            # Plot the time series using Seaborn lineplot
+            plt.figure(figsize=(15, 6))
+            sns.lineplot(data=resampled_data)
+            plt.ylabel('Sales')
+            plt.title(f'Sales Time Series (Resampled by {resample_method})')
+            st.pyplot(plt.gcf())
+
+
+
