@@ -92,7 +92,7 @@ else:
     model = joblib.load('./xgb_model.joblib')
     preprocessor = joblib.load('./preprocessor.joblib') 
 
-  
+    
 
     # Create a layout with 2 columns for even distribution
     col1, col2 = st.columns(2)  
