@@ -19,7 +19,7 @@ st.set_page_config(layout="wide")
 # Initialize df as None
 df = None
 
-st.sidebar.title("Sales Forecasting Favorita Stores")
+st.sidebar.title("Favorita Stores")
 selected_option = st.sidebar.radio("Select to Proceed", ["Data Statistics", "Visuals", "Time Series Analysis", "Forecasting"])
 
 # Custom CSS styling for the title
