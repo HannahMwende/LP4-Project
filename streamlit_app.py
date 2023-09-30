@@ -112,7 +112,7 @@ elif selected_option == "Time Series Analysis":
             plt.title(f'Sales Time Series (Resampled by {resample_method})')
             st.pyplot(plt.gcf())
 else:
-    st.write("Please enter these inputs to predict sale. Thank you!")
+    st.write("Please enter these inputs to predict sales. Thank you!")
     # Load the pre-trained model and preprocessor
     model = joblib.load('./xgb_model.joblib')
     preprocessor = joblib.load('./preprocessor.joblib') 
