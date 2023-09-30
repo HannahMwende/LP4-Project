@@ -14,12 +14,36 @@ from sklearn.metrics import mean_squared_error
 
 import joblib
 
-
+# Set the page layout to full width
+st.set_page_config(layout="wide")
 # Initialize df as None
 df = None
 
 st.sidebar.title("Sales Forecasting Favorita Stores")
 selected_option = st.sidebar.radio("Select to Proceed", ["Data Statistics", "Visuals", "Time Series Analysis", "Forecasting"])
+
+# Custom CSS styling for the title
+st.markdown(
+    """
+    <style>
+    .title-text {
+        font-size: 28px;
+        text-align: center;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 0;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Streamlit App Title
+st.markdown('<p class="title-text">Machine Learning App for Sales Prediction</p>', unsafe_allow_html=True)
 
 # Function to load and process the data
 def load_and_process_data():
