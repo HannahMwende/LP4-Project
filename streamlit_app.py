@@ -92,31 +92,7 @@ else:
     model = joblib.load('./xgb_model.joblib')
     preprocessor = joblib.load('./preprocessor.joblib') 
 
-    # # Set the page layout to full width
-    # st.set_page_config(layout="wide")   
-
-    # # Custom CSS styling for the title
-    # st.markdown(
-    #     """
-    #     <style>
-    #     .title-text {
-    #         font-size: 28px;
-    #         text-align: center;
-    #         background-color: #3498db;
-    #         color: white;
-    #         padding: 10px 0;
-    #         width: 100%;
-    #         position: sticky;
-    #         top: 0;
-    #         z-index: 1;
-    #     }
-    #     </style>
-    #     """,
-    #     unsafe_allow_html=True
-    # )   
-
-    # Streamlit App Title
-    # st.markdown('<p class="title-text">Machine Learning App for Sales Prediction</p>', unsafe_allow_html=True)  
+  
 
     # Create a layout with 2 columns for even distribution
     col1, col2 = st.columns(2)  
