@@ -210,6 +210,19 @@ else:
         # Display the prediction
         prediction_placeholder.text(f"Predicted Value for sales: {prediction[0]}")  
 
+        if prediction >= 0:
+            prediction_placeholder.markdown(
+            f'Predicted Value for sales: <span style="background-color: green; padding: 2px 5px; border-radius: 5px;">{prediction[0]}</span>',
+            unsafe_allow_html=True
+        )
+        else:
+            prediction_placeholder.markdown(
+            f'Predicted Value for sales: <span style="background-color: red; padding: 2px 5px; border-radius: 5px;">{prediction[0]}</span>',
+            unsafe_allow_html=True
+        )
+
+ 
+
 
 
 
