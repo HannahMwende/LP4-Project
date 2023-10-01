@@ -157,7 +157,7 @@ else:
 
     # User Inputs - Product Category
     with col1:
-        oil_prices = st.number_input("Enter Number for oil prices", min_value=1, step=1)    
+        oil_prices = st.number_input("Enter oil price", min_value=1, step=1)    
 
 
     # # Add custom spacing between columns
@@ -207,17 +207,18 @@ else:
         # Make a prediction
         prediction = model.predict(preprocessed_data)   
 
+         
         # Display the prediction
-        prediction_placeholder.text(f"Predicted Value for sales: {prediction[0]}")  
+        prediction_placeholder.text(f"Predicted Value for sales: {prediction[0]: ,.2f}")  
 
         if prediction >= 0:
             prediction_placeholder.markdown(
-            f'Predicted Value for sales: <span style="background-color: green; padding: 2px 5px; border-radius: 5px;">{prediction[0]}</span>',
+            f'Predicted Value for sales: <span style="background-color: green; padding: 2px 5px; border-radius: 5px;">{prediction[0]:,.2f}</span>',
             unsafe_allow_html=True
         )
         else:
             prediction_placeholder.markdown(
-            f'Predicted Value for sales: <span style="background-color: red; padding: 2px 5px; border-radius: 5px;">{prediction[0]}</span>',
+            f'Predicted Value for sales: <span style="background-color: red; padding: 2px 5px; border-radius: 5px;">{prediction[0]:,.2f}</span>',
             unsafe_allow_html=True
         )
 
