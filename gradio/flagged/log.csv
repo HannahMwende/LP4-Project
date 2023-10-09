@@ -1,0 +1,37 @@
+name,output,flag,username,timestamp
+Kwame,Hello Kwame!,,,2023-10-07 10:38:47.700165
+,,,,,,,,,,,,,,,,,,,C:\Users\hp\Desktop\gradio\flagged\Prediction\tmp5y482_a7.json,,,2023-10-09 08:28:19.457613
+,False,False,False,0,,,,,,,,,,,,[],0,0,C:\Users\hp\Desktop\gradio\flagged\Prediction\tmp2s780k5f.json,,,2023-10-09 08:33:45.813627
+,,,,,,,,,,,,,,,,,,,C:\Users\hp\Desktop\gradio\flagged\Prediction\tmpd0rb8p_k.json,,,2023-10-09 08:33:52.772677
+Aaron Ayitey,Hello Aaron Ayitey!,,,2023-10-09 09:03:03.727565
+,,,,2023-10-09 09:22:03.876124
+,,,,0,,,,,2023-10-09 09:32:32.604255
+,,,,,,,,,,,,,,,,,,,,,2023-10-09 17:22:42.989025
+"'
+<div style=""display: flex; flex-wrap: wrap; justify-content: space-between;"">
+    <div style=""flex: 1;"">
+        <label for=""gender"">Gender:</label>
+        <select id=""gender"" name=""gender"">
+            <option value=""Female"">Female</option>
+            <option value=""Male"">Male</option>
+        </select>
+    </div>
+    <div style=""flex: 1;"">
+        <label for=""SeniorCitizen"">Senior Citizen:</label>
+        <select id=""SeniorCitizen"" name=""SeniorCitizen"">
+            <option value=""Yes"">Yes</option>
+            <option value=""No"">No</option>
+        </select>
+    </div>
+    <div style=""flex: 1;"">
+        <label for=""Partner"">Partner:</label>
+        <select id=""Partner"" name=""Partner"">
+            <option value=""Yes"">Yes</option>
+            <option value=""No"">No</option>
+        </select>
+    </div>
+    <!-- Add more input fields here -->
+</div>
+",,,,2023-10-09 18:25:01.045760
+Male,Yes,No,No,0,No,No,No,No,No,No,No,No,No,Month-to-month,No,Mailed check,0,0,Customer Will Not Churn,,,2023-10-09 19:30:21.626633
+Male,Yes,No,No,0,No,No,No,No,No,No,No,No,No,Month-to-month,No,Mailed check,0,0,Customer Will Not Churn,,,2023-10-09 19:30:29.005407
