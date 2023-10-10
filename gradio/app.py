@@ -5,30 +5,12 @@ import numpy as np
 
 # Define prediction function
 def make_prediction(
-    gender='Female', SeniorCitizen='No', Partner='No', Dependents='No', tenure=0, PhoneService='Yes',
-    MultipleLines=None, InternetService='DSL', OnlineSecurity=None, OnlineBackup=None,
-    DeviceProtection=None, TechSupport=None, StreamingTV=None, StreamingMovies=None,
-    Contract='One year', PaperlessBilling='Yes', PaymentMethod='Electronic check',
-    MonthlyCharges=10, TotalCharges=None):
+    gender, SeniorCitizen, Partner, Dependents, tenure, PhoneService,
+    MultipleLines, InternetService, OnlineSecurity, OnlineBackup,
+    DeviceProtection, TechSupport, StreamingTV, StreamingMovies,
+    Contract, PaperlessBilling, PaymentMethod,
+    MonthlyCharges, TotalCharges):
 
-    # Check if any input values are None (indicating user did not make a selection) and set default values
-    
-    if MultipleLines is None:
-        MultipleLines = 'No'  
-    if OnlineSecurity is None:
-        OnlineSecurity = 'No'  
-    if OnlineBackup is None:
-        OnlineBackup = 'No'  
-    if DeviceProtection is None:
-        DeviceProtection = 'No'  
-    if TechSupport is None:
-        TechSupport = 'No'  
-    if StreamingTV is None:
-        StreamingTV = 'No'  
-    if StreamingMovies is None:
-        StreamingMovies = 'No'  
-    if TotalCharges is None:
-        TotalCharges = 18 
 
     # Make a dataframe from input data
     input_data = pd.DataFrame({
@@ -59,7 +41,8 @@ def make_prediction(
     # Return prediction
     if np.any(predt == 1):
         return 'Customer Will Churn'
-    return 'Customer Will Not Churn'
+    else:
+        return 'Customer Will Not Churn'
 
 
 # Create the input components for Gradio
