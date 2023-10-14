@@ -1,0 +1,10 @@
+
+'Select gender': [gender], 'SeniorCitizen': [SeniorCitizen], 'Does client have partner?': [Partner],
+'Does client  have dependents?': [Dependents], 'Enter client\'s tenure': [tenure], 'PhoneService': [PhoneService],
+'Does client have multiple lines?': [MultipleLines], 'Is client on Internet Service subscription?': [InternetService],
+'Is client on the Online Security Service subscription?': [OnlineSecurity], 'Does client have online backup?': [OnlineBackup],
+'Is Device Protection active?': [DeviceProtection], 'Is Tech Support service active?': [TechSupport],
+'StreamingTV': [StreamingTV], 'Does client streaming movies?': [StreamingMovies],
+'Select contract term': [Contract], 'Is billing method paperless?': [PaperlessBilling],
+'Select payment method': [PaymentMethod], 'Enter monthly charges': [MonthlyCharges],
+'Enter total charges': [TotalCharges]
