@@ -2,8 +2,8 @@
 This project utilizes Streamlit to create an interactive web-based interface for forecasting sales using a pre-trained machine learning model.
 
 ## Summary
-| Code          |     Name                       | Published Article
-| ------------- | -------------                  | -------------    
+| Code          |     Name                       | Published Article | Deployment 
+| ------------- | -------------                  | -------------    | -------------------|
 | LP4           | LP4- Embedding a Machine Learning Model in a Web App |  [Article](https://medium.com/@aaronayitey/building-a-sales-prediction-machine-learning-app-with-streamlit-3af76812192b) | [Deployment](https://huggingface.co/spaces/aaronayitey/Streamlit-app)
 
 ## Introduction
